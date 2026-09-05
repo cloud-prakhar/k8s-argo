@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: k8s-argo-project
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+
+spec:
+  description: Argo CD project for cloud-prakhar/k8s-argo
+
+  sourceRepos:
+    - https://github.com/cloud-prakhar/k8s-argo.git
+
+  destinations:
+    - namespace: k8s-argo-demo
+      server: https://kubernetes.default.svc
+
+  clusterResourceWhitelist:
+    - group: ""
+      kind: Namespace

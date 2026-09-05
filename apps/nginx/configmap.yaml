@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-html
+
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Argo CD on EKS</title>
+
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+            background-color: #f4f4f4;
+          }
+
+          .card {
+            background: white;
+            display: inline-block;
+            padding: 40px 60px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+          }
+
+          h1 {
+            color: #ef7b4d;
+          }
+        </style>
+      </head>
+
+      <body>
+
+        <div class="card">
+
+          <h1>Argo CD + Amazon EKS 🚀</h1>
+
+          <h2>GitOps Deployment Successful</h2>
+
+          <p>This application was deployed automatically using Argo CD.</p>
+
+          <p>
+            GitHub Repository:
+            <strong>cloud-prakhar/k8s-argo</strong>
+          </p>
+
+        </div>
+
+      </body>
+    </html>

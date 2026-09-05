@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-demo
+
+spec:
+  type: ClusterIP
+
+  selector:
+    app: nginx-demo
+
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80

@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-demo
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+
+spec:
+  project: k8s-argo-project
+
+  source:
+    repoURL: https://github.com/cloud-prakhar/k8s-argo.git
+    targetRevision: main
+    path: apps/nginx
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: k8s-argo-demo
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+    syncOptions:
+      - CreateNamespace=true
+
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m
