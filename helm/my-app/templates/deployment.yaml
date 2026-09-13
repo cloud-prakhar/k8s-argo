@@ -11,7 +11,7 @@ spec:
     metadata:
       labels:
         app: {{ .Release.Name }}
-        appVersion: {{ .Release.AppVersion }}
+        appVersion: {{ .charts.appVersion }}
   
     spec:
       containers:
