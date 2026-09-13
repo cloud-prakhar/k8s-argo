@@ -7,10 +7,12 @@ spec:
   selector:
     matchLabels:
       app: {{ .Release.Name }}
+      appVersion: {{ .Chart.AppVersion }}
   template:
     metadata:
       labels:
         app: {{ .Release.Name }}
+        appVersion: {{ .Chart.AppVersion }}
   
     spec:
       containers:
